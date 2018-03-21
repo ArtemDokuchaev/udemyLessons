@@ -1,0 +1,20 @@
+<template>
+	<div>
+		<app-quote v-fro="(quote, index) in quotes"> {{quote}} </app-quote>
+	</div>
+</template>
+
+<script>
+	import Quote from './Quote.vue'
+	export default {
+		props: ['quotes'],
+		components: {
+			appQuote: Quote
+		},
+		methods: {
+			deleteQuote (index) {
+				this.$emit('quoteDeleted', index);
+			}
+		}
+	}
+</script>

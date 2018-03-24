@@ -4,8 +4,9 @@
     	<div class="progress-bar">
     		<div 
     			class="progress-bar"
-    			:style="{width: (quoteCount/maxQuotes) * 100 + '%'}">
-    			
+                style="background-color: #4f63ff;" 
+    			:style="{width: (currentQuotes/maxQuotes) * 100 + '%'}">
+    			<template v-if="currentQuotes>0">{{currentQuotes}}/{{maxQuotes}}</template>
     		</div>
     	</div>
     </div>
@@ -13,14 +14,20 @@
 
 <script>
     export default {
-        props: ['quoteCount', 'maxQuotes']
+        props: ['currentQuotes', 'maxQuotes']
     }
 </script>
 
-<style>
+<style scoped>
 	.progress-bar {
 		height: 25px;
 		width: 80%;
-		border: 1px solid black;
+        margin-bottom: 20px;
+        overflow: hidden;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 2px grey;
+        text-align: center;
+		background-color: #d6daff;
+        transition: 500ms;
 	}
 </style>

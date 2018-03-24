@@ -1,9 +1,14 @@
 <template>
     <div class="container">
-    	<app-header></app-header>
-        <app-new-quote></app-new-quote>
+    	<app-header :currentQuotes="quotes.length" :maxQuotes="maxQuotes"></app-header>
+        <app-new-quote @quoteAdded="addQuote"></app-new-quote>
         <app-quote-grid :quotes="quotes"
-                        :quoteDeleted="deleteQuote"></app-quote-grid>
+                        @quoteDeleted="deleteQuote"></app-quote-grid>
+        <div class="row">
+            <div class="col-sm-12 text-center">                
+                <div class="alert alert-info">Info: click on the quote to delete it</div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -27,12 +32,23 @@
 
     	},
         methods:{
+            addQuote (quote) {
+                if(this.quotes.length >= this.maxQuotes){
+                    alert('Too much quotes! Please, delete old one first')
+                }
+                else {
+                    this.quotes.push(quote);
+                }
+            },
             deleteQuote (index) {
-                this.quotes.splice(index,1)
+                this.quotes.splice(index,1);
             }
         }
     }
 </script>
 
 <style>
+    body {
+        background-color: #fcfdff;
+    }
 </style>

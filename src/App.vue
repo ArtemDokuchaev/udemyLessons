@@ -1,54 +1,50 @@
 <template>
-    <div class="container">
-    	<app-header :currentQuotes="quotes.length" :maxQuotes="maxQuotes"></app-header>
-        <app-new-quote @quoteAdded="addQuote"></app-new-quote>
-        <app-quote-grid :quotes="quotes"
-                        @quoteDeleted="deleteQuote"></app-quote-grid>
-        <div class="row">
-            <div class="col-sm-12 text-center">                
-                <div class="alert alert-info">Info: click on the quote to delete it</div>
-            </div>
-        </div>
+    <div class="container">    		
+    	<app-header></app-header>
+    	<transition name="slide" mode="out-in">
+			<router-view></router-view>	
+    	</transition>
     </div>
 </template>
 
 <script>
- 	import Header from './components/Header.vue'
- 	import NewQuote from './components/NewQuote.vue'
-    import QuoteGrid from './components/QuoteGrid.vue'
+	import Header from './components/Header.vue'
     export default {
-    	data: function() {
-    		return {
-    			quotes: [
-    				'Default quote'
-    				],
-    			maxQuotes: 10
-    		}
-    	},
     	components: {
-    		appHeader: Header,
-            appNewQuote: NewQuote,
-            appQuoteGrid: QuoteGrid,
-
-    	},
-        methods:{
-            addQuote (quote) {
-                if(this.quotes.length >= this.maxQuotes){
-                    alert('Too much quotes! Please, delete old one first')
-                }
-                else {
-                    this.quotes.push(quote);
-                }
-            },
-            deleteQuote (index) {
-                this.quotes.splice(index,1);
-            }
-        }
+    		appHeader: Header
+    	}
     }
 </script>
 
 <style>
-    body {
-        background-color: #fcfdff;
-    }
+	h3{
+		margin-top: 20px;
+	}
+	.slide-enter-active {
+		animation: slide-in 250ms ease-out forwards;
+	}
+	.slide-leave-active {
+		animation: slide-out 250ms ease-out forwards;
+	}
+	
+	@keyframes slide-in {
+		from {
+			transform: translateY(-30px);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+	@keyframes slide-out {
+		from {
+			transform: translateY(0);
+			opacity: 1;
+		}
+		to {
+			transform: translateY(-30px);
+			opacity: 0;
+		}
+	}
 </style>

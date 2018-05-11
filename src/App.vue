@@ -20,31 +20,38 @@
 	h3{
 		margin-top: 20px;
 	}
+
+	.app-border {
+		border: 1px solid black;
+		border-radius: none;
+		padding: 30px;
+		border-top: none;
+	}	
 	.slide-enter-active {
-		animation: slide-in 250ms ease-out forwards;
+		animation: slide-in 300ms ease-out forwards;
 	}
 	.slide-leave-active {
-		animation: slide-out 250ms ease-out forwards;
+		animation: slide-out 300ms ease-out forwards;
 	}
 	
 	@keyframes slide-in {
 		from {
-			transform: translateY(-30px);
-			opacity: 0;
+			transform: translateY(-105%);
+			/*opacity: 0;*/
 		}
 		to {
 			transform: translateY(0);
-			opacity: 1;
+			/*opacity: 1;*/
 		}
 	}
 	@keyframes slide-out {
 		from {
 			transform: translateY(0);
-			opacity: 1;
+			/*opacity: 1;*/
 		}
 		to {
-			transform: translateY(-30px);
-			opacity: 0;
+			transform: translateY(-105%);
+			/*opacity: 0;*/
 		}
 	}
 </style>

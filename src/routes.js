@@ -1,10 +1,10 @@
 import Home from './components/Home.vue'
-import MyStock from './components/MyStocks/Mystock.vue'
-import BuyStock from './components/BuyStock/BuyStock.vue' 
+import sellStocks from './components/SellStocks/SellStocks.vue'
+import BuyStock from './components/BuyStock/BuyStocks.vue' 
 
 export const routes = [
 	{path: '/', component: Home},
-	{path: '/myStocks', component: MyStock},
+	{path: '/sellStocks', component: sellStocks},
 	{path: '/buyStocks', component: BuyStock}
 ];
 	

@@ -2,12 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex';
+import VueRecource from 'vue-resource'
 
 import {routes} from './routes'
 import {store} from './store/store'
 
 Vue.use(VueRouter);
 Vue.use('vuex');
+Vue.use(VueRecource);
+
+Vue.http.options.root = "https://vuejs-http-11515.firebaseio.com/";
 
 const router = new VueRouter({
 	mode: 'history',

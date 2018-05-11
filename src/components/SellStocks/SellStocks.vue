@@ -1,14 +1,13 @@
 <template>
-	<div>
-		<h3 v-if="show">My stock</h3>
-		<h3 v-else>Empty</h3>
-		<ul>
+	<div class="app-border">
+		<h1 v-if="show">My stock</h1>
+		<h1 v-else>Empty</h1>
+		<!-- <ul>
 			<li v-for="stock in stocks">{{stock}}</li>
-		</ul>
+		</ul> -->
 		<div class="row">
 			<app-stock v-for="stock in stocks" :stock="stock"></app-stock>
 		</div>
-		<p>Q: {{quantity}}</p>
 	</div>
 </template>
 
@@ -17,17 +16,14 @@ import {mapGetters} from 'vuex';
 import Stock from './Stock.vue'
 
 export default {
-	data() {
-		return {
-			show: false
-		}
-	},
 	computed: {
 		...mapGetters ({
-			stocks:'getStocks'
+			stocks:'stocks'
 		}),
-		quantity() {
-			return this.$store.state.availableStocks;
+		show() {
+			if (this.stocks.length > 0) {
+				return true;
+			}
 		}
 	},
 	components: {

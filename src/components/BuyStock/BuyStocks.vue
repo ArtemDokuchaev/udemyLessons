@@ -1,10 +1,10 @@
 <template>
-	<div>
-		<h3>Today's offer</h3>
+	<div class="app-border">
+		<h1>Today's offer</h1>
 		<div class="row">
 			<app-stock v-for="stock in stocks" :stock="stock"></app-stock>
 		</div>
-		<p>R: {{stocks}}</p>
+		<!-- <p>R: {{stocks}}</p> -->
 	</div>
 </template>
 
@@ -14,14 +14,8 @@
 	import {mapGetters} from 'vuex'
 	export default {
 		computed: {
-			...mapGetters ({
-				stocks:'getStocks'
-			}),
 			stocks(){
 				return availableStocks.state.availableStocks;
-			},
-			rootState() {
-				return this.$store.getters.getStocks;
 			}
 		},
 		components: {

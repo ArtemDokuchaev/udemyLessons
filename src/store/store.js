@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import stockStore from '../components/MyStocks/stockStore'
+import stocksManagement from '../components/SellStocks/stocksManagement'
 import availableStocks from '../components/BuyStock/availableStocks'
+import actions from './actions.js'
 
 Vue.use(Vuex);
 
@@ -15,7 +16,8 @@ export const store = new Vuex.Store({
 		}
 	},
 	modules: {
-		stockStore,
-		availableStocks
+		stocksManagement,
+		availableStocks,
+		actions
 	}
 });

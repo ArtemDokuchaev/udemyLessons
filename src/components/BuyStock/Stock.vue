@@ -8,7 +8,7 @@
 				<div class="card-body">
 					<div class="input-group input-group-md mb-3">
 						<div class="input-group-append">
-							<span class="input-group-text" id="inputGroup-sizing-sm">${{totalPrice}}</span>
+							<span class="input-group-text" id="inputGroup-sizing-sm">{{totalPrice | currency}}</span>
 						</div>
 						<input
 							type="number"

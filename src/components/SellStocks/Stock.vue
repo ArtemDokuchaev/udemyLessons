@@ -8,7 +8,7 @@
 			<div class="card-body">
 				<div class="input-group input-group-md mb-3">
 					<div class="input-group-append">
-						<span class="input-group-text" id="inputGroup-sizing-sm">${{currentStock.price * quantity}}</span>
+						<span class="input-group-text" id="inputGroup-sizing-sm">{{currentStock.price * quantity | currency}}</span>
 					</div>
 					<input type="number" class="form-control quantity" aria-label="Small" aria-describedby="inputGroup-sizing-sm" v-model.number="quantity">
 				</div>
@@ -49,12 +49,6 @@ export default {
 				console.log("quantity must be more than 0/less or equal " + this.stock.quantity);
 			}
     },
-		check() {
-			// console.log(this.$store.state.availableStocks.availableStocks);
-			// console.log(this.$store.state.availableStocks.availableStocks.find (
-			// 	element => element.id === 2
-			// ));
-		}
   }
 };
 </script>

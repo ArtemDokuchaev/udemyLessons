@@ -34,7 +34,7 @@
 	      </ul>
 	    </li>
     </ul>
-    <strong class="navbar-nav navbar-text">Funds: ${{funds}}</strong>
+    <strong class="navbar-nav navbar-text">Funds: {{funds | currency}}</strong>
   </div>
 </nav>
 </template>

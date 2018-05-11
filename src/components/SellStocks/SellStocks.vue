@@ -17,9 +17,12 @@ import Stock from './Stock.vue'
 
 export default {
 	computed: {
-		...mapGetters ({
-			stocks:'stocks'
-		}),
+		...mapGetters ([
+			'stocks'
+		]),
+		quantity() {
+			return this.$store.state.availableStocks;
+		},
 		show() {
 			if (this.stocks.length > 0) {
 				return true;
